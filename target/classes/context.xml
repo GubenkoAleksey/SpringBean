@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- <bean id="hero" class="academy.mate.ClassWorkSpring2.Hero"> <property 
+		name="name" value="Puge" /> <property name="item" ref="item" /> </bean> <bean 
+		id="item" class="academy.mate.ClassWorkSpring2.Item"> <property name="name" 
+		value="Ash....." /> </bean> </beans> -->
+
+
+	<bean id="hero" class="academy.mate.ClassWorkSpring2.Hero">
+		<constructor-arg index="0" ref="item" />
+		<constructor-arg index="1" value="Puge" />
+	</bean>
+
+	<bean id="item" class="academy.mate.ClassWorkSpring2.Item">
+		<property name="name" value="Ash....." />
+	</bean>
+</beans>
