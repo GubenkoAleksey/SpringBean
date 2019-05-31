@@ -11,4 +11,11 @@
 
 	<context:component-scan
 		base-package="academy.mate.ClassWorkSpring3" />
+
+	<bean id="myCoach" class="academy.mate.springdemo.BaseballCoach">
+		<constructor-arg ref="myFortune" />
+	</bean>
+	<bean id="myFortune"
+		class="academy.mate.springdemo.HappyFortuneService">
+	</bean>
 </beans>
