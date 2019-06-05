@@ -7,15 +7,26 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-
+	<context:property-placeholder location="classpath:sport.properties"/>
 
 	<context:component-scan
 		base-package="academy.mate.ClassWorkSpring3" />
 
-	<bean id="myCoach" class="academy.mate.springdemo.BaseballCoach">
-		<constructor-arg ref="myFortune" />
+	<bean id="myCoach" class="academy.mate.springdemo.TrackCoach">
+		<constructor-arg index="0" ref="myFortuneService" />
 	</bean>
-	<bean id="myFortune"
+	<bean id="myFortuneService"
 		class="academy.mate.springdemo.HappyFortuneService">
+	</bean>
+	<bean id="myCricketCoach"
+		class="academy.mate.springdemo.CricketCoach">
+		<property name="fortuneService" ref="myFortuneService" />
+		<!--<property name="emailAddress" value="coach@gmail.com" />
+				<property name="team" value="Lions" />
+				  -->
+		<property name="emailAddress" value="${foo.email}" />
+		<property name="team" value="${foo.team}" />
+
+
 	</bean>
 </beans>
